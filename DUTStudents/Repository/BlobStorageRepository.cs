@@ -18,13 +18,13 @@ namespace DUTStudents.Repository
         private CloudBlobClient _cloudBlobClientx;
         private CloudBlobContainer _cloudBlobContainerx;
 
-        private string containerNamex = "studentscontainer";
+        private string containerNamex = "container name";
         private string downloadPath = @"C:\\";
     
         public BlobStoragerepository()
         {
-            string accontNamex = "studentastoraccount";
-            string keyx = "P6vaLnRnlJQlRHuag6D3tCfUF4g7zRIYlUZOZHRFXBswtC+8o396WSo3FtHbR/yktHmBsT0mSVOf5Yif4pM43Q==";
+            string accontNamex = "storage account name";
+            string keyx = "storageKey her";
 
             _storageCredentialsx = new StorageCredentials(accontNamex, keyx);
             _cloudStorageAccountx = new CloudStorageAccount(_storageCredentialsx, true);
