@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DUTStudents.Models.Students>
+<br />
+<hr />
+@{
+
+    ViewBag.Title = "Search";
+
+}
+<h2>Students List</h2>
+<hr />
+@using (Html.BeginForm("Search", "Student", FormMethod.Get))
+
+{
+
+    <b>Search By:</b> @Html.RadioButton("searchType", "Name") <text>Name</text>
+
+    @Html.RadioButton("searchType", "Surname") <text>Surname</text>
+
+    @Html.RadioButton("searchType", "StudentNo") <text>Student Number</text>
+
+    @Html.RadioButton("searchType", "ShowAll") <text>Show All</text>
+
+    <br />
+
+    @Html.TextBox("searchParam")
+    <input type="submit" value="Search" />
+    <br />
+    <br />
+    <a class="btn btn-primary" href="/Student/Create">Add Student<span class="glyphicon glyphicon-plus"></span></a>
+   
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Student Number</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email Address</th>
+            <th>Telephone Number</th>
+            <th>Mobile</th>
+            <th>IsActive</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="8" style="color:red">
+                    No rows match search criteria
+            </tr>
+        }
+        else
+
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td><a href="@Url.Action("Details","Student",new { id = item.Id})">@Html.DisplayFor(modelItem => item.StudentNo)</a></td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.Email</td>
+                    <td>@item.Tel</td>
+                    <td>@item.Mobile</td>
+
+                    <td>@item.isActive</td>
+
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
