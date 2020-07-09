@@ -18,7 +18,7 @@ namespace DUTStudents.Models
         public void SendEmail(Students student)
         {
 
-            var fromAddress = new MailAddress("ngcebozulu55@gmail.com", "Ngcebo");
+            var fromAddress = new MailAddress("someone@gmail.com", "Your Name");
             var toAddress = new MailAddress(Recipient, Name);
             string fromPassword = Password;
             string subject = student.Name;
